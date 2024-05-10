@@ -20,7 +20,7 @@ pipeline{
          stage ('SonarQube Analysis') {
         steps{
             script{
-                withSonarQubeEnv('sonarqube-8.9.2') {
+                withSonarQubeEnv('sonarqube-10.5.1.90531') {
                     sonarCredentials = credentials('sqp_ef28071a0c3c25ade5a66ec862142e6e9c1e5854')
                              withCredentials([string(credentialsId: 'sonarqube', variable: 'sonarqube')]) {
                                  bat 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=root'
